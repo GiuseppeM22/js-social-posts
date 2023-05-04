@@ -96,6 +96,12 @@ for (let i = 0; i < posts.length; i++) {
     `
 }
 
+let likeButton = document.querySelectorAll(".likes__cta")
+
+likeButton.addEventListener("click", function(){
+    likeButton.classList.add("bgBlue")
+})
+
 
 
 
