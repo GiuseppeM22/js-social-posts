@@ -56,5 +56,48 @@ const posts = [
     }
 ];
 
-console.log(posts.name)
-//document.getElementById("imageProfile").innerHTML= `<img class="profile-pic" src="${posts.image}" alt="Phil Mangione">`
+
+let contenitore = document.getElementById("container")
+contenitore.innerHTML= ""
+for (let i = 0; i < posts.length; i++) {
+    const postEle = posts[i];
+    contenitore.innerHTML+= 
+    ` <div class="post">
+    <div class="post__header">
+        <div class="post-meta">                    
+            <div class="post-meta__icon" id="imageProfile">
+                <img class="profile-pic" src="${postEle.author.image}" alt="Phil Mangione">                    
+            </div>
+            <div class="post-meta__data" id="author">
+                <div class="post-meta__author">${postEle.author.name}</div>
+                <div class="post-meta__time">${postEle.created}</div>
+            </div>                    
+        </div>
+    </div>
+    <div class="post__text" id="content">${postEle.content}</div>
+    <div class="post__image" id="postImage">
+        <img src=" ${postEle.media} " alt="">
+    </div>
+    <div class="post__footer">
+        <div class="likes js-likes">
+            <div class="likes__cta">
+                <a class="like-button  js-like-button" href="#" data-postid="1" id="miPiace">
+                    <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                    <span class="like-button__label">Mi Piace</span>
+                </a>
+            </div>
+            <div class="likes__counter" id="counter">
+                Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+            </div>
+        </div> 
+    </div>            
+</div> 
+
+    `
+}
+
+
+
+
+
+
