@@ -87,7 +87,7 @@ for (let i = 0; i < posts.length; i++) {
                 </a>
             </div>
             <div class="likes__counter" id="counter">
-                Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                Piace a <b id="like-counter-1" class="js-likes-counter">${postEle.likes}</b> persone
             </div>
         </div> 
     </div>            
@@ -96,13 +96,28 @@ for (let i = 0; i < posts.length; i++) {
     `
 }
 
-let likeButton = document.querySelectorAll(".likes__cta")
+let likeArray = [];
 
-likeButton.addEventListener("click", function(){
-    likeButton.classList.add("bgBlue")
+let buttonBlue = document.querySelectorAll(".like-button") 
+for (let i = 0; i < buttonBlue.length; i++) {
+    const buttonEle = buttonBlue[i];
+    buttonEle.addEventListener ("click", function(e){
+        e.preventDefault();
+        let classAdd = "like-button--liked";
+        let contatore = document.querySelectorAll(".js-likes-counter")
+        let like = contatore[i].innerText
+        
+        
+        if(!buttonEle.classList.contains(classAdd)){
+            buttonEle.classList.add(classAdd)
+            like++
+            contatore[i].innerText = like            
+        
+        }
+    
+        
 })
-
-
+}
 
 
 
